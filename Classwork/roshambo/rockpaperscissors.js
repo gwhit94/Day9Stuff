@@ -60,50 +60,29 @@ var computerChoice = "";
 var userChoice = "";
 
 function winnerCheck(){
-    var userWin = `${userChoice} beats ${computerChoice}! You WIN!`;
-    var userLoss = `${computerChoice} beats ${userChoice}. You lose.`;
-    var tie = `You both threw ${userChoice}. Tie game.`;
-    var flavorText = "";
     var result = "";
     if (userChoice === computerChoice){
-        result = tie;
         resultsTracker(2);
     }
     switch (computerChoice){
         // Computer picks Rock
         case "Rock":
             switch (userChoice){
-                // case "Rock":
-                //     result = tie;
-                //     resultsTracker(2);
-                //     break;
                 case "Paper":
-                    flavorText = "covers";
-                    result = userWin;
-                    resultsTracker(0);
+                    resultsTracker(0, "covers");
                     break;
                 case "Scissors":
-                    flavorText = "crushes";
-                    result = userLoss;
-                    resultsTracker(1);
+                    resultsTracker(1, "crushes");
             }
             break;
         // Computer picks Paper
         case "Paper":
             switch (userChoice){
                 case "Rock":
-                    flavorText = "covers";
-                    result = userLoss;
-                    resultsTracker(1);
+                    resultsTracker(1, "covers");
                     break;
-                // case "Paper":
-                //     result = tie;
-                //     resultsTracker(2);
-                //     break;
                 case "Scissors":
-                    flavorText = "cuts";
-                    result = userWin;
-                    resultsTracker(0);
+                    resultsTracker(0, "cuts");
             }
             break;
         // Computer picks Scissors
@@ -111,41 +90,41 @@ function winnerCheck(){
             switch (userChoice){
                 case "Rock":
                     flavorText = "crushes";
-                    result = userWin;
-                    resultsTracker(0);
+                    resultsTracker(0, "crushes");
                     break;
                 case "Paper":
                     flavorText = "cuts";
-                    result = userLoss;
-                    resultsTracker(1);
-                //     break;
-                // case "Scissors":
-                //     result = tie;
-                //     resultsTracker(2);
+                    resultsTracker(1, "cuts");
             }
     }
-    
-    versusSelection.innerText = result;
     document.querySelector("#playAgain").innerText = "Pick again to start a new game!";
 }
 var wins = 0;
 var losses = 0;
 var ties = 0;
-function resultsTracker(resultCode){
+function resultsTracker(resultCode, flavor){
+    var userWin = `${userChoice} ${flavor} ${computerChoice}! You WIN!`;
+    var userLoss = `${computerChoice} ${flavor} ${userChoice}. You lose.`;
+    var tie = `You both threw ${userChoice}. Tie game.`;
     switch (resultCode){
         case 0:
             wins++;
             winCount.innerText = `Wins: ${wins}`;
+            result = userWin;
             break;
         case 1: 
             losses++;
             lossCount.innerText = `Losses: ${losses}`;
+            result = userLoss;
             break;
         case 2:
             ties++;
             tieCount.innerText = `Ties: ${ties}`;
+            result = tie;
             break;
     }
+    console.log(result);
+    versusSelection.innerText = result;
     document.querySelector(".game").innerText = `Game: ${wins+losses+ties+1}`;
 }
 
