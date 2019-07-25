@@ -17,19 +17,7 @@ choiceButtons.forEach(function(button){
 });
 
 function buttonClicked(){
-    switch (this.innerText) {
-        case "Rock":
-            userChoice = "Rock";
-            console.log("you clicked rock!");
-            break;
-        case "Paper":
-            userChoice = "Paper";
-            console.log("you clicked paper!");
-            break;
-        case "Scissors":
-            userChoice = "Scissors";
-            console.log("you clicked scissors!");
-    }
+    userChoice = this.innerText;
     userSelection.innerText = `You clicked ${userChoice}!`;
     computerSelect();
 }
@@ -58,9 +46,9 @@ function computerSelect(){
 
 var computerChoice = "";
 var userChoice = "";
+var result = "";
 
 function winnerCheck(){
-    var result = "";
     if (userChoice === computerChoice){
         resultsTracker(2);
     }
@@ -123,7 +111,6 @@ function resultsTracker(resultCode, flavor){
             result = tie;
             break;
     }
-    console.log(result);
     versusSelection.innerText = result;
     document.querySelector(".game").innerText = `Game: ${wins+losses+ties+1}`;
 }
