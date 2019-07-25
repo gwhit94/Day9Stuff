@@ -73,19 +73,19 @@ function winnerCheck(){
         // Computer picks Rock
         case "Rock":
             switch (userChoice){
-                case "Rock":
-                    result = tie;
-                    resultsTracker(2);
-                    break;
+                // case "Rock":
+                //     result = tie;
+                //     resultsTracker(2);
+                //     break;
                 case "Paper":
                     flavorText = "covers";
                     result = userWin;
                     resultsTracker(0);
-                    // break;
-                // case "Scissors":
-                //     flavorText = "crushes";
-                //     result = userLoss;
-                //     resultsTracker(1);
+                    break;
+                case "Scissors":
+                    flavorText = "crushes";
+                    result = userLoss;
+                    resultsTracker(1);
             }
             break;
         // Computer picks Paper
