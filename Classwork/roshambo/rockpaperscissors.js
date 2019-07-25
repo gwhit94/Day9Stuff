@@ -65,6 +65,10 @@ function winnerCheck(){
     var tie = `You both threw ${userChoice}. Tie game.`;
     var flavorText = "";
     var result = "";
+    if (userChoice === computerChoice){
+        result = tie;
+        resultsTracker(2);
+    }
     switch (computerChoice){
         // Computer picks Rock
         case "Rock":
@@ -77,11 +81,11 @@ function winnerCheck(){
                     flavorText = "covers";
                     result = userWin;
                     resultsTracker(0);
-                    break;
-                case "Scissors":
-                    flavorText = "crushes";
-                    result = userLoss;
-                    resultsTracker(1);
+                    // break;
+                // case "Scissors":
+                //     flavorText = "crushes";
+                //     result = userLoss;
+                //     resultsTracker(1);
             }
             break;
         // Computer picks Paper
@@ -92,10 +96,10 @@ function winnerCheck(){
                     result = userLoss;
                     resultsTracker(1);
                     break;
-                case "Paper":
-                    result = tie;
-                    resultsTracker(2);
-                    break;
+                // case "Paper":
+                //     result = tie;
+                //     resultsTracker(2);
+                //     break;
                 case "Scissors":
                     flavorText = "cuts";
                     result = userWin;
@@ -114,10 +118,10 @@ function winnerCheck(){
                     flavorText = "cuts";
                     result = userLoss;
                     resultsTracker(1);
-                    break;
-                case "Scissors":
-                    result = tie;
-                    resultsTracker(2);
+                //     break;
+                // case "Scissors":
+                //     result = tie;
+                //     resultsTracker(2);
             }
     }
     
