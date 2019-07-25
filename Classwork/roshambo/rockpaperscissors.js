@@ -1,0 +1,1 @@
+var choiceButton = document.getElementsByClassName("choice");

@@ -6,6 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Events and Callbacks</title>
     <style>
+        div {
+            height: 100px;
+            width: 100px;
+            margin: 2px;
+            display: inline-block;
+            border: 1px solid black;
+        }
     
     </style>
 </head>
@@ -17,6 +24,23 @@
 
 
     <script>
+        document.querySelectorAll("div").forEach(function(div){
+            div.addEventListener("click", changeToRed)
+        })
+
+        var newDiv = document.createElement("div");
+        newDiv.classList.add("D");
+        newDiv.innerText = "D";
+        
+        newDiv.addEventListener("click", changeToRed);
+        document.querySelector("body").append(newDiv);
+
+        function changeToRed(){
+            var divs = document.querySelectorAll("div");
+            for(var i=0; i<divs.length; i++){
+                divs[i].style.backgroundColor = "red";
+            }
+        }
         
     
     </script>
