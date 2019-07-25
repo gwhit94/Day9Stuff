@@ -10,22 +10,23 @@
 <body>
     <header>
         <h1 class="text-center">Rock Paper Scissors</h1>
-       <h2 class="text-center heading game">Game</h2>
+       <h2 class="text-center heading game">Game: 1</h2>
        <div class="text-center container content">
-            <div class="text-center flex33">Wins:</div>
-            <div class="text-center flex33">Ties:</div>
-            <div class="text-center flex33">Losses:</div>
+            <div id="winCounter" class="text-center flex33">Wins: 0</div>
+            <div id="tieCounter" class="text-center flex33">Ties: 0</div>
+            <div id="lossCounter" class="text-center flex33">Losses: 0</div>
        </div>
     </header>
     <main>
-        <div class="content selection text-center">The Computer Hasn't picked yet</div>
-        <div class="content selection text-center">You haven't picked yet</div>
-        <div class="content selection text-center"></div>
+        <div id="computerSelection" class="content text-center">The Computer Hasn't picked yet</div>
+        <div id="userSelection" class="content text-center">You haven't picked yet</div>
+        <div id="versusSelection" class="content text-center"></div>
         <div class="buttonContainer container content">
             <button class="choice rock flex33">Rock</button>
             <button class="choice paper flex33">Paper</button>
             <button class="choice scissors flex33">Scissors</button>
         </div>
+        <div id="playAgain" class="content text-center"></div>
     </main>
     <script src="./rockpaperscissors.js"></script>
 </body>
